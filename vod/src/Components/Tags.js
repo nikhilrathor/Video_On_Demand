@@ -1,5 +1,6 @@
 import { Button, Container, Row, Col } from 'reactstrap';
 import { useState, useEffect } from 'react';
+import GridView from './GridView/GridView';
 
 const Tags = (props) => {
     const [tags, setTags] = useState(props.tags);
@@ -39,12 +40,14 @@ const Tags = (props) => {
                     <Col xs="auto"><h3 >Tags:</h3></Col>
                     {tags && tags.map((t) => (
                         <Col xs="auto" key={t}>
-                            <Button outline color="primary" 
-                            onClick={() => clickedTag(t)}>{t}</Button>
+                            <Button outline color="primary"
+                                onClick={() => clickedTag(t)}>{t}</Button>
                         </Col>
                     ))}
                 </Row>
             </Container>
+            {taggedVideos && <h3 className="m-5">{selectedTag}</h3>}
+            {taggedVideos && <GridView videos={taggedVideos} />}
         </div>
     )
 }
