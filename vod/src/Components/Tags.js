@@ -30,7 +30,6 @@ const Tags = (props) => {
                 return tags.includes(t)
             })
             setTaggedVideos(x);
-            console.log(taggedVideos)
         }
     }
     return (

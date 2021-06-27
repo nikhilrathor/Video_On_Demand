@@ -60,7 +60,7 @@ const GridView = (props) => {
                 <ReactPlayer url={videoUrl} playing={true} controls={true} />
                 <h2 className="mt-5">{videoTitle}</h2>
                 {videoTags.map((t) => (
-                    <Button outline color="primary" className="m-5">{t}</Button>
+                    <Button outline color="primary" className="m-5" key={t}>{t}</Button>
                 ))}
                 <p>{videoDescription}</p>
             </Modal>
