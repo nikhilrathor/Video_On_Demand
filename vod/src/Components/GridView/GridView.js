@@ -33,9 +33,15 @@ const GridView = (props) => {
 
     const favouriteClicked = (v) => {
         if (localStorage.getItem(v.title))
+        {
+            alert(v.title+" Removed from Favourites")
             localStorage.removeItem(v.title);
+        }
         else
+        {
+            alert(v.title+" Added to Favourites")
             localStorage.setItem(v.title, "favourite")
+        }
     }
 
     return (
@@ -43,15 +49,17 @@ const GridView = (props) => {
             <Container>
                 {videos && videos.map((v) => (
                     <div className="card" key={v.title}>
-                        <div className="imgBx" onClick={() => videoModal(v)}>
+                        <div className="imgBx" >
                             <img src={v.thumbnailUrl} alt={v.title}></img>
                         </div>
-                        <h5 className="m-2">{v.title}</h5>
-                        <p className="small m-2">{v.description}</p>
-                        <button className="go-corner" 
-                        onClick={() => favouriteClicked(v)}>
-                            <i className="fa fa-heart"></i>
-                        </button>
+                        <div className="details" onClick={() => videoModal(v)}>
+                            <h2>{v.title}</h2>
+                            <p>{v.description}</p>
+                        </div>
+                        <div className="go-corner"
+                            onClick={() => favouriteClicked(v)}>
+                                <a href="/" onClick={(e)=>e.preventDefault()}><i className="fa fa-heart"></i></a>
+                        </div>
 
                     </div>
                 ))}
