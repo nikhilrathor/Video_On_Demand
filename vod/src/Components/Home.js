@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import Carousal from './Carousal';
 import Tags from './Tags';
+import GridView from './GridView/GridView';
 
 const Home = () => {
 
@@ -40,6 +41,8 @@ const Home = () => {
         <div>
             <Carousal items={items} />
             <Tags tags={tags} videos={videos} />
+            <h3 className="m-5">All Videos</h3>
+            <GridView videos={videos}/>
         </div>
     )
 }
